@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Menu: React.FC = () => {
@@ -85,9 +86,14 @@ const Menu: React.FC = () => {
         </div>
 
         <div>
-          <Button className="font-poppins mt-5 rounded-none bg-[#896E47] px-10 py-6 text-sm font-[500] tracking-[0.65px] text-white hover:text-black md:mt-8">
-            View Menu
-          </Button>
+          <Link href={"/menu"}>
+            <Button
+              className="relative z-40 mt-4 flex items-center justify-center gap-3 px-10 py-7 uppercase"
+              variant="imageoutline"
+            >
+              View Menu
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
