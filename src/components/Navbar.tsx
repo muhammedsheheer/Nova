@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./SideBar";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const Navbar = ({
   position = "static",
@@ -11,13 +14,26 @@ const Navbar = ({
   position?: "static" | "fixed" | "absolute";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  useEffect(() => {
+    const d = localStorage.getItem("positiond")
+    if (d !== null) {
+      setPositiond(d)
+    }
+  }, [])
+  const [positiond, setPositiond] = useState<string>("")
+  useEffect(() => {
+    if (positiond) {
+      localStorage.setItem("positiond", positiond)
+    }
+  }, [positiond])
+  const pathname = usePathname()
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className={`${position} top-5 z-50 h-[10vh] w-full pt-0`}>
+    <nav className={cn(`${position} top-5 z-50 h-[10vh] w-full pt-0`,
+    )}>
       {/*big screen */}
       <div className="hidden px-4 lg:block lg:px-20">
         <div className="flex flex-row items-center justify-between">
@@ -35,11 +51,30 @@ const Navbar = ({
             >
               Menu<span className="text-xl text-[#FEC679]">+</span>
             </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="cursor-pointer">
+                <div
+                  className="font-open_sans text-sm font-[400] uppercase leading-[25px] tracking-[1.6px] text-[#fff]"
+                >
+                  Food<span className="text-xl text-[#FEC679]">+</span>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 bg-[#070d0f] rounded-none">
+                <DropdownMenuRadioGroup value={positiond} onValueChange={setPositiond}>
+                  <Link href='/a-la-carte'>
+                    <DropdownMenuRadioItem value="carte">A La Carte</DropdownMenuRadioItem>
+                  </Link>
+                  <Link href='/breakfast-lunch'>
+                    <DropdownMenuRadioItem value="lunch">Breakfast & Lunch</DropdownMenuRadioItem>
+                  </Link>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
-              href={""}
+              href="/drinks"
               className="font-open_sans text-sm font-[400] uppercase leading-[25px] tracking-[1.6px] text-[#fff]"
             >
-              Food & Drinks<span className="text-xl text-[#FEC679]">+</span>
+              Drinks<span className="text-xl text-[#FEC679]">+</span>
             </Link>
             <Link
               href={"/table-booking"}
@@ -47,7 +82,6 @@ const Navbar = ({
             >
               Reservation<span className="text-xl text-[#FEC679]">+</span>
             </Link>
-
             <Link
               href={"/contact"}
               className="font-open_sans text-sm font-[400] uppercase leading-[25px] tracking-[1.6px] text-[#fff]"
@@ -99,7 +133,7 @@ const Navbar = ({
         </div>
       </div>
       <div className="w-full border-b-[1px] border-b-[rgba(254,198,121,0.38)] pt-4 md:pt-6" />
-    </nav>
+    </nav >
   );
 };
 
