@@ -1,4 +1,10 @@
-const starters = [
+interface lunchtype {
+    name: string;
+    price?: number;
+    description?: string;
+}
+
+const starters: lunchtype[] = [
     {
         name: "Tempura Prawns",
         price: 13,
@@ -34,7 +40,7 @@ const starters = [
     },
 ];
 
-const sushi = [
+const sushi: lunchtype[] = [
     {
         name: "Seared Salmon",
         price: 18,
@@ -55,7 +61,7 @@ const sushi = [
     },
 ];
 
-const mains = [
+const mains: lunchtype[] = [
     {
         name: "Pumpkin Ravioli (V, N)",
         price: 17,
@@ -104,7 +110,7 @@ const mains = [
     },
 ];
 
-const sides = [
+const sides: lunchtype[] = [
     { name: "Mixed Mushrooms" },
     { name: "Crushed Potatoes" },
     { name: "Grilled Asparagus" },
@@ -117,7 +123,7 @@ const sides = [
     { name: "Bread Basket" },
 ];
 
-const desserts = [
+const desserts: lunchtype[] = [
     { name: "Pistachio Baklava (N)" },
     { name: "Red Velvet Cake (N)" },
     { name: "Chocolate Pudding (N)" },
@@ -299,6 +305,13 @@ const BreakfastLunch = ({ }) => {
                             </div>
 
                         </div>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-2 items-center justify-center">
+                        <p className="text-center font-[600] text-white text-2xl">N – Contain Nuts   V – Vegetarian   GF – Gluten Free   VG – Vegan</p>
+                        <p className="text-white text-center max-w-[700px]">Please inform us about any dietary requirements or allergies and we will be happy to assist you.
+                            All prices include VAT. An optional service charge of 12.5% will be added to your bill.
+                        </p>
                     </div>
 
                 </div>

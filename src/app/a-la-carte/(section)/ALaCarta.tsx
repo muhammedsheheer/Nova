@@ -1,6 +1,18 @@
 import React from "react";
 
-const appetisers = [
+interface cartatype {
+  name: string;
+  price?: number;
+  description?: string;
+  contains?: string[];
+  extras?: {
+    name: string;
+    price: number
+  }[];
+  dietary?: string[];
+}
+
+const appetisers: cartatype[] = [
   {
     name: "Grilled Halloumi (GF/V)",
     price: 11,
@@ -29,7 +41,7 @@ const appetisers = [
   },
 ];
 
-const starters = [
+const starters: cartatype[] = [
   {
     name: "Tempura Prawns",
     price: 13,
@@ -75,7 +87,7 @@ const starters = [
   },
 ];
 
-const salads = [
+const salads: cartatype[] = [
   {
     name: "Caesar Salad",
     price: 16,
@@ -103,7 +115,7 @@ const salads = [
   },
 ];
 
-const steaks = [
+const steaks: cartatype[] = [
   {
     name: "Wagyu Rib Eye (GF)",
     price: 96,
@@ -155,7 +167,7 @@ const steaks = [
   },
 ];
 
-const mains = [
+const mains: cartatype[] = [
   {
     name: "Veal Milano",
     price: 34,
@@ -204,7 +216,7 @@ const mains = [
   },
 ];
 
-const pastas = [
+const pastas: cartatype[] = [
   {
     name: "Lobster Spaghetti",
     price: 45,
@@ -226,7 +238,7 @@ const pastas = [
   },
 ];
 
-const signatureBurgers = [
+const signatureBurgers: cartatype[] = [
   {
     name: "NOVA Burger",
     price: 19,
@@ -247,7 +259,7 @@ const signatureBurgers = [
   },
 ];
 
-const goldMenu = [
+const goldMenu: cartatype[] = [
   {
     name: "Wagyu Beef (250G)",
     price: 280,
@@ -278,7 +290,7 @@ const goldMenu = [
   },
 ];
 
-const sidesMenu = [
+const sidesMenu: cartatype[] = [
   {
     name: "Mixed Mushrooms (GF)",
     price: 8,
@@ -340,7 +352,7 @@ const sidesMenu = [
   },
 ];
 
-const sushi = [
+const sushi: cartatype[] = [
   {
     name: "Sushi Platter",
     price: 90,
@@ -371,7 +383,7 @@ const sushi = [
   },
 ];
 
-const roll = [
+const roll: cartatype[] = [
   {
     name: "Rainbow",
     price: 19,
@@ -421,7 +433,7 @@ const roll = [
   },
 ];
 
-const classicOysters = [
+const classicOysters: cartatype[] = [
   { name: "3pcs", price: 12 },
   { name: "6pcs", price: 20 },
 ];
