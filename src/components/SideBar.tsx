@@ -21,38 +21,56 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
       <SheetContent className="w-[300px] sm:w-[540px]">
         <SheetHeader>
           <SheetTitle>
-            <Image src="/images/logo.png" width={162} height={35} alt="Foodo" />
+            <Image
+              src="/images/home/hero/logo.png"
+              width={162}
+              height={35}
+              alt="Foodo"
+              className="w-28"
+            />
           </SheetTitle>
           <SheetDescription className="flex w-full flex-col items-start justify-start gap-7 pt-14">
             <Link
               href="/"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent "
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
             >
               Home
             </Link>
             <Link
               href="/menu"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent "
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
             >
               Menu
             </Link>
-            {/* <Link
+            <Link
               href="/about-us"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent text-white"
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
             >
               About
-            </Link> */}
+            </Link>
             <Link
               href="/contact"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent "
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
             >
               Contact
             </Link>
             <Link
               href="/table-booking"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent"
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
             >
               Table Booking
+            </Link>
+            <Link
+              href=""
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
+            >
+              Food
+            </Link>
+            <Link
+              href="/drinks"
+              className="flex w-full justify-start p-0 font-playfair text-4xl font-normal text-white"
+            >
+              Drinks
             </Link>
             {/* <Button
                             variant="link"

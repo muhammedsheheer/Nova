@@ -68,17 +68,17 @@ const Contact = ({}) => {
 
   return (
     <section
-      className="flex h-full w-full flex-col items-center justify-center bg-[#FFF6EB]"
+      className="flex h-full w-full flex-col items-center justify-center bg-[#070d0f]"
       id="contact"
     >
       <div className="flex h-full w-full max-w-[1300px] flex-col gap-[2.5rem] px-0 py-12 pl-0 md:px-2 md:py-24">
         <div className="flex w-full flex-col lg:flex-row">
-          <div className="flex w-full flex-col gap-8 bg-[#FFF6EB] px-6 lg:w-1/2 lg:px-28">
+          <div className="flex w-full flex-col gap-8 bg-[#070d0f] px-6 lg:w-1/2 lg:px-28">
             <div className="flex flex-col gap-8">
-              <p className="font-bai text-lg leading-[4px] text-[#000]">
+              <p className="font-bai text-lg leading-[4px] text-white">
                 Contact Us
               </p>
-              <h1 className="font-forum text-4xl font-medium uppercase leading-[50px] tracking-[5px] text-[#0d0d0d] lg:text-5xl">
+              <h1 className="font-forum text-4xl font-medium uppercase leading-[50px] tracking-[5px] text-white lg:text-5xl">
                 Get in
                 <br /> Touch
               </h1>
@@ -87,20 +87,26 @@ const Contact = ({}) => {
               <div className="flex gap-6">
                 <div>
                   <div className="h-fit w-fit rounded-full p-2">
-                    <MapPin />
+                    <MapPin className="text-white" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <Link href={"https://g.co/kgs/1gWhtT5"} target="_blank">
-                    <p className="text-[#000]">
-                      7 Enfield Rd, London N1 5EN,
+                  <Link
+                    href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
+                    target="_blank"
+                  >
+                    <p className="text-white">
+                      2 Kendal Ave, London W3 0PA,
                       <br /> United Kingdom
                     </p>
                   </Link>
-                  <Link href={"https://g.co/kgs/1gWhtT5"} target="_blank">
-                    <p className="flex items-center gap-2 text-sm text-[#000]">
+                  <Link
+                    href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
+                    target="_blank"
+                  >
+                    <p className="flex items-center gap-2 text-sm text-white">
                       <span>Get Direction</span>
-                      <ArrowRight />
+                      <ArrowRight className="text-white" />
                     </p>
                   </Link>
                 </div>
@@ -118,32 +124,35 @@ const Contact = ({}) => {
               <div className="flex items-center gap-6">
                 <div>
                   <div className="h-fit w-fit rounded-full p-2">
-                    <Phone />
+                    <Phone className="text-white" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <Link href="tel:+442079230047" className="text-[#000]">
-                    +442079230047
+                  <Link href="tel:+442035001710" className="text-white">
+                    +44 20 3500 1710{" "}
                   </Link>
                 </div>
               </div>
               <div className="flex items-center justify-start gap-4">
                 <Link
-                  href={"https://www.instagram.com/breadandbuttercafe/?hl=en"}
+                  href={"https://www.instagram.com/novaparkroyal/?hl=en"}
                   target="_blank"
                 >
-                  <Icons.instagram className="text-[#000]" />
+                  <Icons.instagram className="text-white" />
                 </Link>
                 <Link
                   href={
-                    "https://www.tripadvisor.in/Restaurant_Review-g186338-d5816512-Reviews-Bread_Butter-London_England.html"
+                    "https://www.tripadvisor.in/Restaurant_Review-g186338-d25077788-Reviews-Nova_Park_Royal-London_England.html"
                   }
                   target="_blank"
                 >
-                  <Icons.unknown className="text-[#000]" />
+                  <Icons.unknown className="text-white" />
                 </Link>
-                <Link href={"https://g.co/kgs/1gWhtT5"} target="_blank">
-                  <Icons.google className="text-[#000]" />
+                <Link
+                  href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
+                  target="_blank"
+                >
+                  <Icons.google className="text-white" />
                 </Link>
                 {/* <Link href='https://www.facebook.com/Istanbulwoolton/'>
                   <Icons.facebook />
@@ -151,7 +160,7 @@ const Contact = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex w-full flex-col bg-[#FFF6EB] lg:w-1/2 lg:items-center lg:justify-center">
+          <div className="flex w-full flex-col bg-[#070d0f] lg:w-1/2 lg:items-center lg:justify-center">
             <div className="w-full px-3 lg:w-4/5 lg:px-0">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="h-full">
@@ -210,7 +219,7 @@ const Contact = ({}) => {
                         name="message"
                         render={({ field }) => (
                           <FormItem className="w-full">
-                            <FormLabel>
+                            <FormLabel className="text-white">
                               Reason for contacting (optional)
                             </FormLabel>
                             <FormControl>
@@ -228,7 +237,7 @@ const Contact = ({}) => {
                   </div>
                   <div className="flex w-full flex-col pt-7 lg:flex-row">
                     <Button
-                      className="font-bai w-full rounded-2xl bg-[#000] py-6 hover:bg-secondary"
+                      className="font-bai w-full rounded-2xl bg-white py-6 text-black hover:bg-black hover:text-white"
                       disabled={bookTableMutation.isPending}
                     >
                       Contact US
@@ -240,7 +249,7 @@ const Contact = ({}) => {
           </div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.566045590807!2d-0.07974512352809203!3d51.53951877182055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761c969a1bb7b5%3A0x356f71aa3b6d926e!2sBread%20%26%20Butter!5e0!3m2!1sen!2sin!4v1738343197196!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.3518235577612!2d-0.282350023528942!3d51.525106571817304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487611828d8d4ff7%3A0xd0a626f080e14845!2sNova%20Park%20Royal!5e0!3m2!1sen!2sin!4v1740603246277!5m2!1sen!2sin"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
@@ -251,7 +260,7 @@ const Contact = ({}) => {
       <div className="flex w-full overflow-hidden">
         <Image
           className="h-full w-full object-cover lg:h-[500px]"
-          src="/images/home/herobottom.jpg"
+          src="/images/about-us/image5.jpeg"
           alt="bottom"
           width={966}
           height={96}

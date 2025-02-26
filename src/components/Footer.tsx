@@ -30,7 +30,7 @@ const Footer = ({}) => {
                 Our Food
               </Link>
               <Link
-                href={""}
+                href={"/drinks"}
                 className="font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81]"
               >
                 Drinks menu{" "}
@@ -68,7 +68,7 @@ const Footer = ({}) => {
                 Press{" "}
               </Link>
               <Link
-                href={""}
+                href={"/contact"}
                 className="font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81]"
               >
                 Contact us{" "}
@@ -132,23 +132,23 @@ const Footer = ({}) => {
               </div>
               <div className="flex flex-col gap-1">
                 <Link
-                  href={""}
+                  href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
                   target="_blank"
                   className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
-                  Kendal Ave, London W3 0PA{" "}
+                  2 Kendal Ave, London W3 0PA, United Kingdom
                 </Link>
                 <Link
-                  href={""}
+                  href={"mailto:info@novaparkroyal.com"}
                   className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
                   info@novaparkroyal.com{" "}
                 </Link>
                 <Link
-                  href={""}
+                  href={"tele:+442035001710"}
                   className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
-                  020 3500 1710{" "}
+                  +44 20 3500 1710
                 </Link>
               </div>
             </div>
@@ -160,24 +160,43 @@ const Footer = ({}) => {
                 Opening hours
               </Link>
               <p className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
-                Mon-Thurs 4pm-1am 
-                <br /> Fri-Sat 12pm-3am 
+                Mon-Thu 6pm-1am 
+                <br /> Fri 4pm-3am 
+                <br /> Sat 12pm-3am 
                 <br /> Sun 12pm-1am
               </p>
             </div>
           </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-3 md:ml-10">
-          <Link href={""} target="_blank" className="text-[#C9AB81]">
+          <Link
+            href={"https://www.instagram.com/novaparkroyal/?hl=en"}
+            target="_blank"
+            className="text-[#C9AB81]"
+          >
             <Icons.instagram />
           </Link>
-          <Link href={""} target="_blank" className="text-[#C9AB81]">
+          <Link
+            href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
+            target="_blank"
+            className="text-[#C9AB81]"
+          >
             <Icons.google />
           </Link>
-          <Link href={""} target="_blank" className="text-[#C9AB81]">
+          <Link
+            href={
+              "https://www.tripadvisor.in/Restaurant_Review-g186338-d25077788-Reviews-Nova_Park_Royal-London_England.html"
+            }
+            target="_blank"
+            className="text-[#C9AB81]"
+          >
             <Icons.unknown />
           </Link>
-          <Link href={""} target="_blank" className="text-[#C9AB81]">
+          <Link
+            href={"https://www.facebook.com/Novaparkroyal/"}
+            target="_blank"
+            className="text-[#C9AB81]"
+          >
             <Icons.facebook />
           </Link>
         </div>
@@ -191,7 +210,7 @@ const Footer = ({}) => {
               © 2024 Lora, ALL RIGHTS RESERVED{" "}
             </span>
             <Link
-              href={""}
+              href={"https://foodo.ai"}
               target="_blank"
               className="font-open_sans text-center text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
             >

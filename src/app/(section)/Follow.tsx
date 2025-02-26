@@ -28,7 +28,7 @@ const Follow: React.FC = () => {
                 className="w-12"
               />
               <Link
-                href={""}
+                href={"https://www.instagram.com/novaparkroyal/?hl=en"}
                 target="_blank"
                 className="font-poppins text-md text-center font-[400] lowercase text-[#C9AB81] md:text-xl"
               >

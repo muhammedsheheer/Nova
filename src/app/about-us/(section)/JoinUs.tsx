@@ -7,7 +7,7 @@ const JoinUs = ({}) => {
     <section
       className="relative flex h-screen w-full items-center justify-center"
       style={{
-        backgroundImage: `url('/images/about-us/join.jpg')`,
+        backgroundImage: `url('/images/about-us/image4.jpg')`,
         backgroundSize: "cover",
       }}
     >
@@ -19,11 +19,11 @@ const JoinUs = ({}) => {
             Unforgettable Meal
           </h1>
           <p className="max-w-[450px] text-center font-[600] leading-[160%] text-[#ffff]">
-            Whether it`s an intimate dinner or a grand celebration, Bread &
-            Butter invites you to indulge in the finest steak experience. From
-            expertly selected cuts to perfectly crafted flavors, every bite is a
-            testament to our passion for excellence. Join us and discover what
-            makes steak at Bread & Butter truly unforgettable.
+            Whether it's an intimate dinner or a grand celebration, Nova invites
+            you to indulge in an exceptional culinary journey. From expertly
+            crafted flavors to hand-selected ingredients, every dish reflects
+            our passion for excellence. Immerse yourself in a dining experience
+            where innovation meets tradition, and every bite tells a story.
           </p>
           <Link href={"/table-booking"}>
             <Button
