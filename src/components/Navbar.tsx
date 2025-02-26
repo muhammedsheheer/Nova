@@ -17,11 +17,9 @@ const Navbar = ({
   };
 
   return (
-    <nav
-      className={`${position} top-5 z-50 h-[10vh] w-full px-4 pt-0 lg:px-20`}
-    >
+    <nav className={`${position} top-5 z-50 h-[10vh] w-full pt-0`}>
       {/*big screen */}
-      <div className="hidden lg:block">
+      <div className="hidden px-4 lg:block lg:px-20">
         <div className="flex flex-row items-center justify-between">
           <div></div>
           <div className="flex flex-row items-center justify-center gap-14">
@@ -73,7 +71,7 @@ const Navbar = ({
       </div>
 
       {/*mobile screen */}
-      <div className="block lg:hidden">
+      <div className="block px-4 lg:hidden lg:px-20">
         <div className="flex flex-row items-center justify-between">
           <div>
             <Link href={"/"}>
@@ -100,6 +98,7 @@ const Navbar = ({
           </div>
         </div>
       </div>
+      <div className="w-full border-b-[1px] border-b-[rgba(254,198,121,0.38)] pt-4 md:pt-6" />
     </nav>
   );
 };
