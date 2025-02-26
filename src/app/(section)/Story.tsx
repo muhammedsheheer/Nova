@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,11 +7,13 @@ const Story: React.FC = () => {
   return (
     <section className="relative h-full w-full bg-[#070D0F] px-4 py-12 md:px-14 md:py-20">
       <div className="absolute right-[12%] hidden md:block">
-        <Link
-          href={"/table-booking"}
-          className="font-open_sans relative rounded-[12px] border border-[#CCAD64] bg-transparent px-7 py-4 text-sm font-medium uppercase tracking-wide text-gray-300 transition-all before:absolute before:inset-0 before:rounded-[12px] before:border before:border-[#CCAD64] before:bg-transparent hover:bg-[#CCAD64] hover:text-black before:hover:bg-[#CCAD64]/30"
-        >
-          Book Now
+        <Link href={"/table-booking"}>
+          <Button
+            className="relative z-40 mt-4 flex items-center justify-center gap-3 px-10 py-7 uppercase"
+            variant="imageoutline"
+          >
+            Book Now{" "}
+          </Button>
         </Link>
       </div>
       <div className="flex flex-col gap-4 md:gap-8">
@@ -22,11 +25,13 @@ const Story: React.FC = () => {
             <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
               What makes us unique{" "}
             </h6>
-            <Link
-              href={"/table-booking"}
-              className="font-open_sans relative mt-2 rounded-[12px] border border-[#CCAD64] bg-transparent px-7 py-4 text-sm font-medium uppercase tracking-wide text-gray-300 transition-all before:absolute before:inset-0 before:rounded-[12px] before:border before:border-[#CCAD64] before:bg-transparent hover:bg-[#CCAD64] hover:text-black before:hover:bg-[#CCAD64]/30 md:hidden"
-            >
-              Book Now
+            <Link href={"/table-booking"}>
+              <Button
+                className="relative z-40 mt-4 flex items-center justify-center gap-3 px-10 py-7 uppercase md:hidden"
+                variant="imageoutline"
+              >
+                Book Now{" "}
+              </Button>
             </Link>
           </div>
           <div>

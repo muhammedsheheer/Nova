@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -45,11 +46,13 @@ const Reservation: React.FC = () => {
             </p>
           </div>
           <div className="mt-5">
-            <Link
-              href={"/table-booking"}
-              className="font-open_sans relative rounded-[12px] border border-[#CCAD64] bg-transparent px-7 py-4 text-sm font-medium uppercase tracking-wide text-gray-300 transition-all before:absolute before:inset-0 before:rounded-[12px] before:border before:border-[#CCAD64] before:bg-transparent hover:bg-[#CCAD64] hover:text-black before:hover:bg-[#CCAD64]/30"
-            >
-              Book Now
+            <Link href={"/table-booking"}>
+              <Button
+                className="relative z-40 mt-4 flex items-center justify-center gap-3 px-10 py-7 uppercase"
+                variant="imageoutline"
+              >
+                Book Now{" "}
+              </Button>
             </Link>
           </div>
         </div>

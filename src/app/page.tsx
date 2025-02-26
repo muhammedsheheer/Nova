@@ -13,6 +13,7 @@ import Reservation from "./(section)/Reservation";
 import Menu from "./(section)/Menu";
 import Reviews from "./(section)/Review";
 import Map from "./(section)/Map";
+import Glimpses from "./(section)/Glimpses";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
         <Highlights />
         <Special />
         <Guests />
+        <Glimpses />
         <Nova />
         <Menu />
         <Reservation />
