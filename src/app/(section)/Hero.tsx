@@ -1,14 +1,23 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Hero: React.FC = () => {
   return (
-    <section
-      className="relative h-[100vh] w-full bg-[rgba(0,0,0,0.65)] bg-cover bg-no-repeat"
-      style={{ backgroundImage: "url('/images/home/reservation/bg.png')" }}
-    >
+    <section className="relative h-screen w-full overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/video/bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="absolute inset-0 bg-black/50"></div>
+
       <div className="relative flex h-full flex-col items-center justify-center gap-3 text-white">
         <h1 className="font-open_sans bg-gradient-to-b from-[#FEC679] to-[#635440] bg-clip-text text-4xl font-[400] uppercase text-transparent md:tracking-[15px] lg:text-5xl">
           WELCOME TO{" "}
