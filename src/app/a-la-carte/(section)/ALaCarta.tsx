@@ -428,7 +428,7 @@ const classicOysters = [
 
 const ALaCarta: React.FC = () => {
   return (
-    <section className="h-full w-full bg-[#000] px-4 py-12 md:px-[50px] 2xl:px-[120px]">
+    <section className="h-full w-full bg-[#070d0f] px-4 py-12 md:px-[50px] 2xl:px-[120px]">
       <div className="flex flex-col gap-4 md:gap-6">
         <div className="flex items-center justify-center">
           <p className="w-full max-w-[1000px] text-center font-inter text-sm font-[400] text-white md:text-base">
