@@ -134,19 +134,19 @@ const Footer = ({}) => {
                 <Link
                   href={"https://maps.app.goo.gl/pWKGdoWeSDCFZkA56"}
                   target="_blank"
-                  className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
+                  className="text-center font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
                   2 Kendal Ave, London W3 0PA, United Kingdom
                 </Link>
                 <Link
                   href={"mailto:info@novaparkroyal.com"}
-                  className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
+                  className="text-center font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
                   info@novaparkroyal.com{" "}
                 </Link>
                 <Link
                   href={"tele:+442035001710"}
-                  className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
+                  className="text-center font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
                 >
                   +44 20 3500 1710
                 </Link>
@@ -159,10 +159,10 @@ const Footer = ({}) => {
               >
                 Opening hours
               </Link>
-              <p className="font-open_sans text-center text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
-                Mon-Thu 6pm-1am 
-                <br /> Fri 4pm-3am 
-                <br /> Sat 12pm-3am 
+              <p className="text-center font-open_sans text-sm font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
+                Mon-Thu 6pm-1am
+                <br /> Fri 4pm-3am
+                <br /> Sat 12pm-3am
                 <br /> Sun 12pm-1am
               </p>
             </div>
@@ -203,16 +203,16 @@ const Footer = ({}) => {
         <div className="flex flex-col gap-2 pb-10">
           <div className="w-full border-b-[1px] border-b-[rgba(201,171,129,0.40)]" />
           <div className="flex flex-col justify-center gap-2 md:flex-row md:justify-between">
-            <span className="font-open_sans text-center text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
-              © 2025 VU Lounge , All Rights Reserved
+            <span className="text-center font-open_sans text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
+              © 2025 Nova , All Rights Reserved
             </span>
-            <span className="font-open_sans text-center text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:mr-28 md:mt-10 md:text-start">
-              © 2024 Lora, ALL RIGHTS RESERVED{" "}
+            <span className="text-center font-open_sans text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:mr-28 md:mt-10 md:text-start">
+              © 2024 Nova, ALL RIGHTS RESERVED{" "}
             </span>
             <Link
               href={"https://foodo.ai"}
               target="_blank"
-              className="font-open_sans text-center text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
+              className="text-center font-open_sans text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start"
             >
               Powerd by foodo
             </Link>
