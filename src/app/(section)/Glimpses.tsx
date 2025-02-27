@@ -22,21 +22,12 @@ const Glimpses: React.FC = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const toggleMute = () => {
-    videoRefs.forEach((videoRef) => {
-      if (videoRef.current) {
-        videoRef.current.muted = !isMuted;
-      }
-    });
-    setIsMuted(!isMuted);
-  };
-
   return (
     <section className="h-full w-full bg-[#070D0F] px-4 py-12 md:px-0">
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
           <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 transform text-center">
-            <h3 className="font-open_sans bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text text-3xl font-[400] uppercase text-transparent md:text-5xl">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-5xl">
               NOVA
             </h3>
           </div>
@@ -76,7 +67,7 @@ const Glimpses: React.FC = () => {
 
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
           <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 transform text-center">
-            <h3 className="font-open_sans bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text text-3xl font-[400] uppercase text-transparent md:text-5xl">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-5xl">
               GLIMPSES
             </h3>
           </div>

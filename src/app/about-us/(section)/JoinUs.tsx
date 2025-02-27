@@ -19,7 +19,7 @@ const JoinUs = ({}) => {
             Unforgettable Meal
           </h1>
           <p className="max-w-[450px] text-center font-[600] leading-[160%] text-[#ffff]">
-            Whether it's an intimate dinner or a grand celebration, Nova invites
+            Whether it`s an intimate dinner or a grand celebration, Nova invites
             you to indulge in an exceptional culinary journey. From expertly
             crafted flavors to hand-selected ingredients, every dish reflects
             our passion for excellence. Immerse yourself in a dining experience

@@ -3,7 +3,6 @@ import EmblaCarousel from "@/app/(section)/(special)/MenuCarousel";
 import { Button } from "@/components/ui/button";
 import { useRestaurant } from "@/context/RestaurantContext";
 import type { EmblaOptionsType } from "embla-carousel";
-import Image from "next/image";
 import Link from "next/link";
 
 const OPTIONS: EmblaOptionsType = { loop: true };
@@ -30,7 +29,7 @@ const Special = ({}) => {
               <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
                 highlights{" "}
               </span>
-              <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
+              <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
                 What’s special for <br /> you{" "}
               </h6>
               <Link href={"/menu"}>

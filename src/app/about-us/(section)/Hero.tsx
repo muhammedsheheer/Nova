@@ -17,7 +17,7 @@ const Hero = ({}) => {
                 At Nova, every dish is a masterpiece, crafted with passion and
                 precision. From handpicked ingredients to expertly curated
                 recipes, we bring you a dining experience that blends artistry
-                with flavor. Whether you're savoring a signature entrée or
+                with flavor. Whether you`re savoring a signature entrée or
                 indulging in a decadent treat, each bite tells a story of
                 quality, innovation, and culinary excellence.
               </p>
