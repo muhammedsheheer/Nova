@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <section className="relative h-full w-full bg-[#070D0F] py-12 md:py-[500px]">
       <div className="absolute right-[26%] top-[160px] hidden md:block">
         <div className="flex flex-col items-start justify-center gap-2">
-          <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+          <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-2xl">
             Our Story
           </span>
           <p className="w-full max-w-[250px] font-lora text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F]">
@@ -97,7 +97,7 @@ const About: React.FC = () => {
         </div>
         <div className="w-full md:w-[40%]">
           <div className="flex flex-col items-center justify-center gap-2">
-            <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+            <span className="font-birthstone text-2xl font-[400] tracking-[0.76px] text-[#C9AB81]">
               Our Story
             </span>
             <p className="w-full max-w-[300px] font-lora text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F] md:text-base">

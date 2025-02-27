@@ -17,7 +17,7 @@ const Reviews = ({}) => {
       <div className="flex h-full w-full flex-col items-start justify-center gap-4 py-12 md:py-44 md:pt-24">
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-4">
           <div className="flex flex-col items-center justify-center gap-2">
-            <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+            <span className="font-birthstone text-2xl font-[400] tracking-[0.76px] text-[#C9AB81]">
               Testimonial{" "}
             </span>
             <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">

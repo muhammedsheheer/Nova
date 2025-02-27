@@ -19,10 +19,10 @@ const Story: React.FC = () => {
       <div className="flex flex-col gap-4 md:gap-8">
         <div className="flex flex-col items-center justify-center gap-4 md:gap-10">
           <div className="flex flex-col items-center justify-center md:gap-2">
-            <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+            <span className="font-birthstone text-2xl font-[400] tracking-[0.76px] text-[#C9AB81]">
               Our Story
             </span>
-            <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
+            <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
               What makes us unique{" "}
             </h6>
             <Link href={"/table-booking"}>
@@ -35,7 +35,7 @@ const Story: React.FC = () => {
             </Link>
           </div>
           <div>
-            <p className="font-lora w-full max-w-[500px] text-center text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F] md:text-base">
+            <p className="w-full max-w-[500px] text-center font-lora text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F] md:text-base">
               We blend Mediterranean elegance with bold Pan-Asian flavours,
               crafting innovative sushi and premium seafood dishes using the
               finest ingredients. Every bite offers a perfect balance of

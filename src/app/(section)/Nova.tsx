@@ -7,10 +7,10 @@ const Nova: React.FC = () => {
       <div className="flex flex-col gap-6 md:gap-12">
         <div>
           <div className="flex flex-col items-center justify-center gap-2">
-            <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+            <span className="font-birthstone text-2xl font-[400] tracking-[0.76px] text-[#C9AB81]">
               Guests{" "}
             </span>
-            <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
+            <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
               NOVA <br /> SUPREMACY
             </h6>
           </div>

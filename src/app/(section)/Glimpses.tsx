@@ -28,7 +28,7 @@ const Glimpses: React.FC = () => {
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-7xl">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-5xl font-[400] uppercase text-transparent md:text-7xl">
               NOVA
             </h3>
           </div>
@@ -67,7 +67,7 @@ const Glimpses: React.FC = () => {
 
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-7xl">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-5xl font-[400] uppercase text-transparent md:text-7xl">
               GLIMPSES
             </h3>
           </div>

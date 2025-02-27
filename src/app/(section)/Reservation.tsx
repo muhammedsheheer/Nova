@@ -13,7 +13,7 @@ const Reservation: React.FC = () => {
         <div className="flex w-full flex-col items-center justify-center gap-4 rounded-t-[300px] bg-[#070D0F] px-8 py-16 md:gap-8 md:px-20 md:py-24 2xl:py-32">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
+              <span className="font-birthstone text-2xl font-[400] tracking-[0.76px] text-[#C9AB81]">
                 Reservation{" "}
               </span>
             </div>
@@ -25,7 +25,7 @@ const Reservation: React.FC = () => {
                 alt="image"
                 className="w-10"
               />
-              <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
+              <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
                 Reserve <br />
                 Your Table
               </h6>
@@ -39,7 +39,7 @@ const Reservation: React.FC = () => {
             </div>
           </div>
           <div>
-            <p className="font-lora w-full max-w-[500px] text-center text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F] md:text-base">
+            <p className="w-full max-w-[500px] text-center font-lora text-sm font-[400] lowercase leading-[150%] text-[#9C9E9F] md:text-base">
               Lorem ipsum dolor sit amet, consectet adipisicing eli sed do eiu
               sm od tempor incididunt ut abore et dolore mag aliqua. Ut enim ad
               minm eniam quis nostrud.
