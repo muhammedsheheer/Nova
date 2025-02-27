@@ -19,9 +19,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        'button-bg': "url('/images/buttonbg.png')",
-        'button-hover': "url('/images/buttonhover.png')",
-        'button-bg-inverted': "url('/images/buttonInvertedBg.png')"
+        "button-bg": "url('/images/buttonbg.png')",
+        "button-hover": "url('/images/buttonhover.png')",
+        "button-bg-inverted": "url('/images/buttonInvertedBg.png')",
       },
       colors: {
         background: "hsl(var(--background))",

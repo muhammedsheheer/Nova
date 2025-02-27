@@ -206,9 +206,7 @@ const Footer = ({}) => {
             <span className="text-center font-open_sans text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:text-start">
               © 2025 Nova , All Rights Reserved
             </span>
-            <span className="text-center font-open_sans text-xs font-[400] uppercase tracking-[2px] text-[#C9AB81] md:mr-28 md:mt-10 md:text-start">
-              © 2024 Nova, ALL RIGHTS RESERVED{" "}
-            </span>
+
             <Link
               href={"https://foodo.ai"}
               target="_blank"
