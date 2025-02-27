@@ -2,20 +2,21 @@
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useRestaurant } from "@/context/RestaurantContext";
+import { isRestaurantOpen } from "@/lib/is-restaurant-open";
+import type { OrganizedMenu } from "@/lib/organize-menu";
 import { cn } from "@/lib/utils";
+import type { MenuItem } from "@/types/menu";
+import { format } from "date-fns";
 import { ArrowLeft, Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import MenuItemMobile from "./MenuItemMobile";
 import SearchInput from "./SearchInput";
-import Image from "next/image";
-import type { OrganizedMenu } from "@/lib/organize-menu";
-import { format } from "date-fns";
-import { MenuItem } from "@/types/menu";
 
 export default function MenuMobile() {
-    const { organizedMenu } = useRestaurant();
+    const { organizedMenu, restaurant } = useRestaurant();
     const [activeCategory, setActiveCategory] = useState<string>("");
     const [showSearch, setShowSearch] = useState<boolean>(false);
     const [query, setQuery] = useState("");
@@ -24,8 +25,9 @@ export default function MenuMobile() {
     const categoryButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
     const isManualScroll = useRef(false);
     const lastActiveCategory = useRef<string>("");
-    const [orderType, setOrderType] = useState<2 | 3>(2);
+    const [orderType, setOrderType] = useState<2 | 3>(3);
     const router = useRouter();
+    const isOpen = isRestaurantOpen(restaurant);
 
     useEffect(() => {
         const savedOrderType = localStorage.getItem("orderType");
@@ -35,9 +37,16 @@ export default function MenuMobile() {
     }, []);
 
     useEffect(() => {
+        if (restaurant?.isDeliveryEnabled && !restaurant?.isTakeAwayEnabled) {
+            setOrderType(2);
+        } else if (!restaurant?.isDeliveryEnabled && restaurant?.isTakeAwayEnabled) {
+            setOrderType(3);
+        }
+    }, [restaurant]);
+
+    useEffect(() => {
         localStorage.setItem("orderType", orderType.toString());
     }, [orderType]);
-
 
     const updateActiveCategory = () => {
         const categories = Object.entries(categoryRefs.current);
@@ -131,18 +140,16 @@ export default function MenuMobile() {
         }
     }, [query, organizedMenu]);
 
-
     useEffect(() => {
-
-        const category = organizedMenu.filter((cat) => cat.items.length > 0)
+        const category = organizedMenu.filter((cat) => cat.items.length > 0);
 
         if (activeCategory.length === 0 && category[0]?._id) {
-            setActiveCategory(category[0]?._id)
+            setActiveCategory(category[0]?._id);
         }
-    }, [activeCategory, organizedMenu])
+    }, [activeCategory, organizedMenu]);
 
     //category filter
-    const [existCategory, setExistCategory] = useState<string[]>([]);
+    // const [existCategory, setExistCategory] = useState<string[]>([]);
 
     // Effect to update available categories based on menu items' availability and order type
     useEffect(() => {
@@ -189,7 +196,7 @@ export default function MenuMobile() {
             }
         });
 
-        setExistCategory(updatedCategories);
+        // setExistCategory(updatedCategories);
     }, [organizedMenu]);
 
     return (
@@ -237,7 +244,7 @@ export default function MenuMobile() {
                     </div>
                 </div>
                 {/* Items */}
-                <div className="px-4 pt-2">
+                <div className="px-4 pb-20 pt-2">
                     <div className="flex flex-col gap-2 md:hidden">
                         {sorted.map((category) => (
                             <div
@@ -254,6 +261,12 @@ export default function MenuMobile() {
                                         const isDineIn = item.extras?.menuItemOrderType === "dinein";
                                         const hasAvailabilityDays = item.extras?.availability?.days;
                                         const isAvailableToday = hasAvailabilityDays?.includes(format(Date.now(), "EEEE").toLowerCase());
+                                        const isOpenAndNotAvailableToday = isOpen && !isAvailableToday;
+                                        const isOnlineOrder = restaurant?.onlineOrder;
+
+                                        if (isOpenAndNotAvailableToday && isOnlineOrder) {
+                                            return null;
+                                        }
 
                                         if (isDineIn && isAvailableToday) {
                                             return null;
@@ -271,14 +284,15 @@ export default function MenuMobile() {
                     </div>
                 </div>
             </div>
-            {cartItems.length > 0 ? (
+            {restaurant?.onlineOrder && (restaurant?.isDeliveryEnabled || restaurant.isTakeAwayEnabled) && cartItems.length > 0 && (
                 <Link className={cn("fixed bottom-0 left-0 z-30 flex h-14 w-full items-center justify-between bg-menuprimary px-3 md:hidden")} href="/cart">
                     <p className="w-full text-center text-lg font-semibold uppercase text-menuforeground">View Basket ({cartItems.length})</p>
                 </Link>
-            ) : (
-                <div className={cn("fixed bottom-0 left-0 z-30 flex h-14 w-full items-center justify-between bg-menuprimary px-3 md:hidden")}>
-                    <p className="w-full text-center text-lg font-bold uppercase text-menuforeground">Add Items To Order</p>
-                </div>
+                // : (
+                //     <div className={cn("fixed bottom-0 left-0 z-30 flex h-14 w-full items-center justify-between bg-menuprimary px-3 md:hidden")}>
+                //         <p className="w-full text-center text-lg font-bold uppercase text-menuforeground">Add Items To Order</p>
+                //     </div>
+                // )
             )}
         </section>
     );

@@ -17,9 +17,9 @@ import {
 import Providers from "@/app/Providers";
 
 export const metadata: Metadata = {
-  title: "Bread and Butter",
-  description: "Bread and Butter",
-  icons: [{ rel: "icon", url: "/Nur.svg" }],
+  title: "Nova",
+  description: "Nova",
+  icons: [{ rel: "icon", url: "/images/home/hero/logo.png", sizes: "12x12" }],
 };
 
 const oswald = Oswald({

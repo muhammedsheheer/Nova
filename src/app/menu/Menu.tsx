@@ -2,11 +2,14 @@
 
 import MenuItem from "@/app/menu/MenuItem";
 import CartDeletePopup from "@/components/popups/CartDeletePopup";
+import DeliveryCheck from "@/components/popups/DeliveryCheck";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useRestaurant } from "@/context/RestaurantContext";
 import { formattedItemPrice } from "@/lib/formatted-item-price";
 import { getCurrencySymbol } from "@/lib/get-currency-symbol";
+import { GetModifiersFromItemId } from "@/lib/get-modifiers-from-item-id";
+import { isRestaurantOpen } from "@/lib/is-restaurant-open";
 import { cn } from "@/lib/utils";
 import type { MenuItem as MenuItemType } from "@/types/menu";
 import { format } from "date-fns";
@@ -32,8 +35,9 @@ export default function Menu() {
   );
   const isManualScroll = useRef(false);
   const lastActiveCategory = useRef<string>("");
-  const [orderType, setOrderType] = useState<2 | 3>(2);
+  const [orderType, setOrderType] = useState<2 | 3>(3);
   const router = useRouter();
+  const isOpen = isRestaurantOpen(restaurant);
 
   useEffect(() => {
     const savedOrderType = localStorage.getItem("orderType");
@@ -41,6 +45,17 @@ export default function Menu() {
       setOrderType(parseInt(savedOrderType) as 2 | 3);
     }
   }, []);
+
+  useEffect(() => {
+    if (restaurant?.isDeliveryEnabled && !restaurant?.isTakeAwayEnabled) {
+      setOrderType(2);
+    } else if (
+      !restaurant?.isDeliveryEnabled &&
+      restaurant?.isTakeAwayEnabled
+    ) {
+      setOrderType(3);
+    }
+  }, [restaurant]);
 
   useEffect(() => {
     localStorage.setItem("orderType", orderType.toString());
@@ -140,7 +155,7 @@ export default function Menu() {
   }, [activeCategory, organizedMenu]);
 
   //category filter
-  const [existCategory, setExistCategory] = useState<string[]>([]);
+  // const [existCategory, setExistCategory] = useState<string[]>([]);
 
   // Effect to update available categories based on menu items' availability and order type
   useEffect(() => {
@@ -205,11 +220,28 @@ export default function Menu() {
       }
     });
 
-    setExistCategory(updatedCategories);
+    // setExistCategory(updatedCategories);
   }, [organizedMenu]);
+  // useEffect(() => {
+
+  // }, [activeCategory])
+
+  const setlocalstorage = (categoryId: string) => {
+    localStorage.setItem("scrollCategory", categoryId);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("scrollCategory")) {
+      scrollToCategory(localStorage.getItem("scrollCategory") as string);
+      setActiveCategory(localStorage.getItem("scrollCategory") as string);
+    }
+  }, []);
 
   return (
-    <section className="bg-menubg flex w-full max-w-[1300px] flex-row">
+    <section className="bg-menubg mt-8 flex w-full max-w-[1300px] flex-row">
+      {/* {(!restaurant?.isTakeAwayEnabled && restaurant?.isDeliveryEnabled) && (
+                <DeliveryCheck setOrderType={setOrderType} />
+            )} */}
       <div className="flex w-full flex-col gap-4 md:w-4/6">
         <div
           className="relative hidden h-[30vh] w-full bg-black md:flex"
@@ -235,6 +267,9 @@ export default function Menu() {
           >
             <div className="flex gap-4">
               {organizedMenu.map((category) => {
+                if (activeCategory === category._id) {
+                  setlocalstorage(category._id);
+                }
                 return category.items.length > 0 ? (
                   <Button
                     key={category._id}
@@ -288,6 +323,13 @@ export default function Menu() {
                       const isAvailableToday = hasAvailabilityDays?.includes(
                         format(Date.now(), "EEEE").toLowerCase(),
                       );
+                      const isOpenAndNotAvailableToday =
+                        isOpen && !isAvailableToday;
+                      const isOnlineOrder = restaurant?.onlineOrder;
+
+                      if (isOpenAndNotAvailableToday && isOnlineOrder) {
+                        return null;
+                      }
 
                       if (isDineIn && isAvailableToday) {
                         return null;
@@ -316,36 +358,50 @@ export default function Menu() {
           <div className="scrollbar-none relative flex h-[85vh] flex-col gap-6 overflow-x-auto pb-2">
             <p className="flex items-center justify-center gap-1 pt-6 text-base font-normal tracking-[1.8px] text-menusecondary">
               <ShoppingBag fill="#ccad64" className="text-itembackground" />{" "}
-              <span>Collection from {restaurant?.name}</span>
+              <span>
+                {orderType === 2 ? "Delivery" : "Collection"} from{" "}
+                {restaurant?.name}
+              </span>
             </p>
-            {/* <div className="flex w-full gap-4">
-              <Button
-                className={cn(
-                  "w-full rounded-none bg-menuprimary text-menuforeground font-bold uppercase hover:bg-buttonhover",
-                  orderType === 3
-                    ? "border border-menuprimary bg-menubackground text-menuprimary hover:bg-menuprimary hover:text-menuforeground"
-                    : "",
-                )}
-                onClick={() => setOrderType(3)}
-              >
-                I&apos;ll Collect
-              </Button>
-              <Button
-                className={cn(
-                  "w-full rounded-none bg-menuprimary text-menuforeground font-bold uppercase hover:bg-buttonhover",
-                  orderType === 2
-                    ? "border border-menuprimary bg-menubackground text-menuprimary hover:bg-menuprimary hover:text-menuforeground"
-                    : "",
-                )}
-                onClick={() => setOrderType(2)}
-              >
-                Delivery
-              </Button>
-            </div> */}
+            {restaurant?.isDeliveryEnabled &&
+              restaurant.isTakeAwayEnabled &&
+              restaurant?.onlineOrder && (
+                <div className="flex w-full gap-4">
+                  <Button
+                    className={cn(
+                      "w-full rounded-none border border-menuprimary bg-menubackground text-menuprimary hover:border-menuprimary hover:bg-menubackground hover:text-menuprimary",
+                      orderType === 3
+                        ? "rounded-none bg-menuprimary font-bold uppercase text-menuforeground hover:bg-menuprimary hover:text-menuforeground"
+                        : "",
+                    )}
+                    onClick={() => setOrderType(3)}
+                  >
+                    I&apos;ll Collect
+                  </Button>
+                  <DeliveryCheck setOrderType={setOrderType}>
+                    <Button
+                      className={cn(
+                        "w-full rounded-none border border-menuprimary bg-menubackground text-menuprimary hover:border-menuprimary hover:bg-menubackground hover:text-menuprimary",
+                        orderType === 2
+                          ? "rounded-none bg-menuprimary font-bold uppercase text-menuforeground hover:bg-menuprimary hover:text-menuforeground"
+                          : "",
+                      )}
+                      // onClick={() => setOrderType(2)}
+                    >
+                      Delivery
+                    </Button>
+                  </DeliveryCheck>
+                </div>
+              )}
             <Button
               className="font-manrope relative flex w-full items-center justify-between rounded-none bg-menuprimary py-6 text-lg font-bold uppercase text-menuforeground hover:bg-buttonhover disabled:bg-buttondisabled disabled:text-menuforeground"
               onClick={() => router.push("/checkout")}
-              disabled={cartItems.length === 0}
+              disabled={
+                cartItems.length === 0 ||
+                !restaurant?.onlineOrder ||
+                (!restaurant?.isDeliveryEnabled &&
+                  !restaurant.isTakeAwayEnabled)
+              }
             >
               <Link href="/checkout">
                 <span className="absolute -top-2 left-4">
@@ -363,7 +419,7 @@ export default function Menu() {
             {/* Separator */}
             <div className="h-[1px] w-full rounded-full bg-menuprimary"></div>
 
-            <div className="hidden-scrollbar flex max-h-[360px] w-full flex-col gap-4 overflow-y-scroll">
+            <div className="hidden-scrollbar mb-6 flex max-h-[360px] w-full flex-col gap-4 overflow-y-scroll">
               {cartItems.length !== 0 ? (
                 <div className="flex w-full flex-col">
                   {reversedCartItems.map((item, index) => {
@@ -385,11 +441,55 @@ export default function Menu() {
                             ? menuitem?.price.value > 0 && (
                                 <p className="font-[700] text-menuprimary">
                                   {menuitem &&
-                                    getCurrencySymbol(
-                                      menuitem.price.currency,
-                                    )}{" "}
-                                  {menuitem &&
-                                    formattedItemPrice(menuitem.price.value)}
+                                  menuitem.takeawayPrice.value > 0 ? (
+                                    <>
+                                      {getCurrencySymbol(
+                                        menuitem.takeawayPrice.currency,
+                                      )}{" "}
+                                      {formattedItemPrice(
+                                        menuitem.takeawayPrice.value,
+                                      )}
+                                    </>
+                                  ) : (
+                                    <>
+                                      {menuitem && menuitem.price.value > 0 ? (
+                                        <>
+                                          {getCurrencySymbol(
+                                            menuitem.price.currency,
+                                          )}{" "}
+                                          {formattedItemPrice(
+                                            menuitem.price.value,
+                                          )}
+                                        </>
+                                      ) : (
+                                        <>
+                                          {menuitem &&
+                                          menuitem.modifiers.length === 0 ? (
+                                            <>Free</>
+                                          ) : (
+                                            menuitem?.modifiers.map(
+                                              (mod, index) =>
+                                                GetModifiersFromItemId(
+                                                  menuitem,
+                                                  items,
+                                                  index,
+                                                ).map((modifier) => {
+                                                  if (
+                                                    modifier._id ===
+                                                    item.modifiers.find(
+                                                      (modifier) =>
+                                                        modifier.defaultSelection,
+                                                    )?.defaultSelection
+                                                  ) {
+                                                    return `${getCurrencySymbol(modifier.price.currency)} ${formattedItemPrice(modifier.price.value)}`;
+                                                  }
+                                                }),
+                                            )
+                                          )}
+                                        </>
+                                      )}
+                                    </>
+                                  )}
                                 </p>
                               )
                             : ""}
@@ -434,7 +534,15 @@ export default function Menu() {
                             </div>
                           ))}
                         </div>
-
+                        <p className="w-full text-sm font-[300] tracking-[1.4px] text-menusecondary">
+                          {item.notes && (
+                            <span className="border-b-[1px] border-b-menusecondary">
+                              Instructions
+                            </span>
+                          )}
+                          <br />
+                          {item.notes}
+                        </p>
                         <div className="flex w-full items-center justify-between pt-6">
                           <Link
                             href={`/cart/${index}`}
@@ -511,7 +619,7 @@ export default function Menu() {
             </div>
 
             {/* Footer */}
-            <div className="absolute bottom-0 left-0 z-30 flex w-full items-center justify-between">
+            <div className="absolute bottom-0 left-0 z-30 flex w-full items-center justify-between bg-itembackground">
               <p className="font-bold text-menuprimary">Subtotal</p>
               <p className="text-lg font-bold text-menuprimary">
                 {"£"} {formattedItemPrice(totalAmount)}
