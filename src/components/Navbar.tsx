@@ -41,9 +41,8 @@ const Navbar = ({
   return (
     <nav
       className={cn(
-        pathname === "/"
-          ? `${position} top-5 z-50 h-[10vh] w-full pt-0`
-          : `${position} top-0 z-50 h-[10vh] w-full bg-menubackground py-4`,
+        `${position} top-5 z-50 h-[10vh] w-full pt-0`,
+        pathname === "/menu" && "bg-menubackground pt-4"
       )}
     >
       {/*big screen */}
