@@ -19,7 +19,7 @@ import Providers from "@/app/Providers";
 export const metadata: Metadata = {
   title: "Nova",
   description: "Nova",
-  icons: [{ rel: "icon", url: "/images/home/hero/logo.png", sizes: "12x12" }],
+  icons: [{ rel: "icon", url: "/images/home/hero/logo.png", sizes: "11x11" }],
 };
 
 const oswald = Oswald({
