@@ -8,17 +8,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        birthstone: ["var(--font-birthstone)", ...fontFamily.sans],
         inter: ["var(--font-inter)", ...fontFamily.sans],
-        italiana: ["var(--font-italiana)", ...fontFamily.sans],
-        playfair: ["var(--font-playfair)", ...fontFamily.sans],
-        saint: ["var(--font-saint)", ...fontFamily.sans],
-        oswald: ["var(--font-oswald)", ...fontFamily.sans],
-        cormorant: ["var(--font-cormorant)", ...fontFamily.sans],
-        open_sans: ["var(--open_sans)", ...fontFamily.sans],
-        lora: ["var(--lora)", ...fontFamily.sans],
-        birthstone: ["var(--birthstone)", ...fontFamily.sans],
+        open_sans: ["var(--font-open_sans)", ...fontFamily.sans],
+        lora: ["var(--font-lora)", ...fontFamily.sans],
       },
-      birthstone: ["var(--lora)", ...fontFamily.sans],
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
