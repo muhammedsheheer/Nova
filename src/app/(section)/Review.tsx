@@ -20,7 +20,7 @@ const Reviews = ({}) => {
             <span className="font-birthstone text-sm font-[400] tracking-[0.76px] text-[#C9AB81] md:text-base">
               Testimonial{" "}
             </span>
-            <h6 className="font-open_sans text-center text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
+            <h6 className="text-center font-open_sans text-2xl font-[400] uppercase text-[#C9AB81] md:text-3xl md:tracking-[10px]">
               STORIES FROM OUR <br /> PEOPLE{" "}
             </h6>
           </div>
@@ -28,7 +28,7 @@ const Reviews = ({}) => {
         <div className="flex w-full items-center justify-center p-4">
           {reviews && (
             <Carousel className="w-full px-4">
-              <CarouselContent className="ml-4 flex w-full justify-center gap-4">
+              <CarouselContent className="flex w-full justify-center gap-4 md:ml-4">
                 {reviews.map((review, index) => (
                   <CarouselItem
                     key={index}
