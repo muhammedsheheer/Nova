@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import React from "react";
+import { Pause, Play } from "lucide-react";
 
 const Glimpses: React.FC = () => {
   const videoRefs = [
@@ -26,8 +27,8 @@ const Glimpses: React.FC = () => {
     <section className="h-full w-full bg-[#070D0F] px-4 py-12 md:px-0">
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
-          <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 transform text-center">
-            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-5xl">
+          <div className="absolute inset-0 flex items-center justify-center text-center">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-7xl">
               NOVA
             </h3>
           </div>
@@ -42,18 +43,17 @@ const Glimpses: React.FC = () => {
         </div>
 
         <div className="relative flex h-[300px] w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-t-full md:h-[400px] md:w-[33%]">
-          <button onClick={togglePlayPause} className="absolute z-10">
-            <Image
-              src={
-                isPlaying
-                  ? "/images/home/hero/play.svg"
-                  : "/images/home/hero/play.svg"
-              }
-              width={80}
-              height={80}
-              alt="play_button"
-              className="w-20 cursor-pointer"
-            />
+          <button
+            onClick={togglePlayPause}
+            className="absolute z-10 flex items-center justify-center"
+          >
+            <div className="flex h-24 w-24 items-center justify-center rounded-full border border-[#fec679] bg-[#fec679] transition-transform duration-300 hover:scale-110">
+              {isPlaying ? (
+                <Pause size={32} color="#000" />
+              ) : (
+                <Play size={32} color="#000" />
+              )}
+            </div>
           </button>
 
           <video
@@ -66,8 +66,8 @@ const Glimpses: React.FC = () => {
         </div>
 
         <div className="relative h-[300px] w-full md:h-[400px] md:w-[33%]">
-          <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 transform text-center">
-            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-5xl">
+          <div className="absolute inset-0 flex items-center justify-center text-center">
+            <h3 className="bg-gradient-to-b from-[#FFF500] to-[#635440] bg-clip-text font-open_sans text-3xl font-[400] uppercase text-transparent md:text-7xl">
               GLIMPSES
             </h3>
           </div>
